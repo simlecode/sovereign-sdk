@@ -66,7 +66,7 @@ pub enum ProverServiceError {
 /// but this functionality will be added in the future (#1185).
 #[async_trait]
 pub trait ProverService {
-    /// Ths root hash of state merkle tree.
+    /// The root hash of state merkle tree.
     type StateRoot: Serialize + Clone + AsRef<[u8]>;
     /// Data that is produced during batch execution.
     type Witness: Serialize;
@@ -90,7 +90,7 @@ pub trait ProverService {
     ) -> Result<ProofProcessingStatus, ProverServiceError>;
 
     /// Sends the ZK proof to the DA.
-    /// This method is noy yet fully implemented: see #1185
+    /// This method is not yet fully implemented: see #1185
     async fn send_proof_to_da(
         &self,
         block_header_hash: <<Self::DaService as DaService>::Spec as DaSpec>::SlotHash,
